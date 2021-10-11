@@ -2,8 +2,9 @@
 #include <Adafruit_CircuitPlayground.h>
 #include <math.h>
 
-#define micMin 60
+#define micMin 65
 #define micMax 100
+#define debug true
 
 int colors[4][3] = {
   {255, 255, 0}, // Yellow
@@ -14,12 +15,17 @@ int colors[4][3] = {
 
 bool direction = true;
 int brightness = 0;
+int delayVal = 1;
 int selectedColor = 3;
+int micDelta = 0;
+float micScale = 0;
 
 void setup() {
-  Serial.begin(115200);
-  delay(1000);
-  Serial.println("Sketch initialing");
+  if (debug) {
+    Serial.begin(115200);
+    delay(1000);
+    Serial.println("Sketch initialing");
+  }
 
   // Initialize the Circuit Playground board
   CircuitPlayground.begin();
@@ -33,6 +39,12 @@ void setup() {
   // clear all of the LEDs (turn them off)
   CircuitPlayground.clearPixels();
   printColor();
+
+  micDelta = 100 - micMin + 1;
+  micScale = 255 / micDelta;
+  if (debug) {
+    Serial.println("Delta: " + String(micDelta) + ", Scale: " + String(micScale));
+  }
 }
 
 void loop() {
@@ -42,11 +54,12 @@ void loop() {
   soundValue = CircuitPlayground.mic.soundPressureLevel(10);
   if ( soundValue >= micMin && soundValue <= micMax) {
     // then go red with intensity based on sound level
-    brightness = round((soundValue - 59) * 6.37);
-    // Serial.println("Sound value " + String(soundValue) + ", " + String(brightness));
+    brightness = round((soundValue - micDelta) * micScale);
+    // if (debug) {
+    //   Serial.println("Sound value " + String(soundValue) + ", " + String(brightness));
+    // }
     goRed(brightness);
   } else {
-    //    CircuitPlayground.clearPixels();
     fadeCycle();
   }
 }
@@ -81,14 +94,19 @@ void fadeCycle() {
       direction = true;
       // Change color
       selectedColor = random(4);
+      // pick a new random delay value
+      delayVal = random(6) + 1;
       printColor();
       return;
     }
   }
   CircuitPlayground.setBrightness(brightness);
-  delay(10);
+  // Wait our random delay value - makes the fade all happen at different speeds
+  delay(delayVal);
 }
 
-void printColor(){
-  Serial.println("Color changed to " + String(selectedColor) + "(" + colors[selectedColor][0] + ", " + colors[selectedColor][1] + ", " + colors[selectedColor][2] + ")");
+void printColor() {
+  if (debug) {
+    Serial.println("Color changed to " + String(selectedColor) + "(" + colors[selectedColor][0] + ", " + colors[selectedColor][1] + ", " + colors[selectedColor][2] + ")");
+  }
 }
