@@ -4,7 +4,7 @@
 
 #define micMin 65
 #define micMax 100
-#define debug true
+#define debug false
 
 int colors[4][3] = {
   {255, 255, 0}, // Yellow
@@ -55,9 +55,9 @@ void loop() {
   if ( soundValue >= micMin && soundValue <= micMax) {
     // then go red with intensity based on sound level
     brightness = round((soundValue - micDelta) * micScale);
-    // if (debug) {
-    //   Serial.println("Sound value " + String(soundValue) + ", " + String(brightness));
-    // }
+    if (debug) {
+      Serial.println("Sound value " + String(soundValue) + ", " + String(brightness));
+    }
     goRed(brightness);
   } else {
     fadeCycle();
