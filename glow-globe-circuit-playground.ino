@@ -2,9 +2,9 @@
 #include <Adafruit_CircuitPlayground.h>
 #include <math.h>
 
-#define micMin 65
+#define micMin 70
 #define micMax 100
-#define debug false
+#define debug true
 
 int colors[4][3] = {
   {255, 255, 0}, // Yellow
@@ -17,8 +17,8 @@ bool direction = true;
 int brightness = 0;
 int delayVal = 1;
 int selectedColor = 3;
-int micDelta = 0;
-float micScale = 0;
+int oldRange = micMax - micMin;
+int newRange = 255;
 
 void setup() {
   if (debug) {
@@ -39,12 +39,6 @@ void setup() {
   // clear all of the LEDs (turn them off)
   CircuitPlayground.clearPixels();
   printColor();
-
-  micDelta = 100 - micMin + 1;
-  micScale = 255 / micDelta;
-  if (debug) {
-    Serial.println("Delta: " + String(micDelta) + ", Scale: " + String(micScale));
-  }
 }
 
 void loop() {
@@ -54,9 +48,10 @@ void loop() {
   soundValue = CircuitPlayground.mic.soundPressureLevel(10);
   if ( soundValue >= micMin && soundValue <= micMax) {
     // then go red with intensity based on sound level
-    brightness = round((soundValue - micDelta) * micScale);
+    //https://stackoverflow.com/questions/929103/convert-a-number-range-to-another-range-maintaining-ratio
+    brightness = round(((soundValue- micMin) * newRange) / oldRange);
     if (debug) {
-      Serial.println("Sound value " + String(soundValue) + ", " + String(brightness));
+      Serial.println("Sound value: " + String(soundValue) + ", Brightness: " + String(brightness));
     }
     goRed(brightness);
   } else {
@@ -95,7 +90,7 @@ void fadeCycle() {
       // Change color
       selectedColor = random(4);
       // pick a new random delay value
-      delayVal = random(6) + 1;
+      delayVal = random(10) + 1;
       printColor();
       return;
     }
