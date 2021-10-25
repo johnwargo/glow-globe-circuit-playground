@@ -2,9 +2,15 @@
 #include <Adafruit_CircuitPlayground.h>
 #include <math.h>
 
+// The range of audio values we'll use to trigger the Red LED
 #define micMin 70
 #define micMax 100
-#define debug true
+#define newRange 255
+
+// Change the following to `true` to enable output to the Serial monitor
+#define debug false
+
+const int oldRange = micMax - micMin;
 
 int colors[4][3] = {
   {255, 255, 0}, // Yellow
@@ -17,8 +23,6 @@ bool direction = true;
 int brightness = 0;
 int delayVal = 1;
 int selectedColor = 3;
-int oldRange = micMax - micMin;
-int newRange = 255;
 
 void setup() {
   if (debug) {
@@ -29,9 +33,8 @@ void setup() {
 
   // Initialize the Circuit Playground board
   CircuitPlayground.begin();
-
+  // initialize the random number generator
   randomSeed(analogRead(0));
-
   // Turn all of the LEDs green to let everyone know we're ready to go
   setAllPixels(0, 255, 0);
   // wait a second (literally)
@@ -66,15 +69,18 @@ void setAllPixels(int red, int green, int blue) {
 }
 
 void goRed(int brightness) {
+  // Set all LEDs to Red
   for (int i = 0; i < 10; i++) {
     CircuitPlayground.setPixelColor(i, 255, 0, 0);
   }
+  // Set brightness based on sound volume
   CircuitPlayground.setBrightness(brightness);
 }
 
 void fadeCycle() {
+  // Fade LED colors up/down with a randomly changing color
+  // Set the pixels to the selected color
   setAllPixels(colors[selectedColor][0], colors[selectedColor][1], colors[selectedColor][2]);
-  // fade up/down white (ghostly)
   if (direction) {
     // we're fading up
     brightness++;
