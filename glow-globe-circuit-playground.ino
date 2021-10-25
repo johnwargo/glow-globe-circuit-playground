@@ -13,10 +13,10 @@
 const int oldRange = micMax - micMin;
 
 int colors[4][3] = {
-  {255, 255, 0}, // Yellow
-  {255, 165, 3}, // Orange
-  {128, 0, 128}, // Purple
-  {255, 255, 255}      // White
+  {255, 255, 0},  // Yellow
+  {255, 165, 3},  // Orange
+  {128, 0, 128},  // Purple
+  {255, 255, 255} // White
 };
 
 bool direction = true;
@@ -52,7 +52,7 @@ void loop() {
   if ( soundValue >= micMin && soundValue <= micMax) {
     // then go red with intensity based on sound level
     //https://stackoverflow.com/questions/929103/convert-a-number-range-to-another-range-maintaining-ratio
-    brightness = round(((soundValue- micMin) * newRange) / oldRange);
+    brightness = round(((soundValue - micMin) * newRange) / oldRange);
     if (debug) {
       Serial.println("Sound value: " + String(soundValue) + ", Brightness: " + String(brightness));
     }
