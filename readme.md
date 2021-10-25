@@ -39,3 +39,7 @@ int colors[4][3] = {
 ```
 
 Be sure to change the fir array dimension (`[4]`) if you add or remove colors from the array.
+
+## Assembly
+
+My wife and I will assemble the globes this week and publish the process with pictures. Stay tuned.
