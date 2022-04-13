@@ -64,4 +64,7 @@ Be sure to change the fir array dimension (`[4]`) if you add or remove colors fr
 
 ![Finished Ghost](images/finished-ghost.jpg)
 
-6. 
+6. Finally, and I don't have a picture of this, use fishing line or some thin, non-conductive material to connect the four corner holes in the plastic piece to corresponding holes in the Circuit Playground. The point is to suspend the Circuit playground in the middle of the globe. 
+7. Attach a charged LiPo battery to the underside of the Circuit Playground and plug it into the Circuit playground. With the right battery, the device should run on power through your whole Halloween celebration.
+
+That's it. Enjoy.
