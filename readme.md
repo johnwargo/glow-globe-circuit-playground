@@ -12,6 +12,12 @@ I copied my original Feather project code into a new folder and rewrote it for t
 2. Next, it starts slowly fading up and down random Halloweeny colors (Yellow, Orange, Purple) (the sketch randomly selects the color but also how long it takes to fade all the way up, then down).
 3. Listens for sounds nearby (using the microphone) and flashes the LEDs Red whenever it detects sound above a specific threshold.
 
+Here is a video demonstrating what it does: https://youtube.com/shorts/nsneTPzMP5E?feature=share. 
+
+**Note:** In the video, I hadn't yet pulled the covering material down when I made the video, so you can see the globe and Circuit Plaground. With the material pulled down, it looks like a ghost. 
+
+## Configuration
+
 The sketch uses several configuration settings:
 
 ```c
@@ -42,4 +48,20 @@ Be sure to change the fir array dimension (`[4]`) if you add or remove colors fr
 
 ## Assembly
 
-My wife and I will assemble the globes this week and publish the process with pictures. Stay tuned.
+1. We started with a clear globe about 10 or 12 inches across. We didn't want the innards to show so we made it opaque by spraying the inside of the globe with [frosted glass paint](https://www.krylon.com/products/frosted-glass-finish). 
+2. Drill a small hole in the top of the globe big enough for the rope or string you'll use to hang the globe
+
+2. We cut eyes and a mouth out of duct tape and taped them to the outside of the globe (in normal eye and mouth positions)
+3. Get a bunch of translucent white material to drape over the globe to make it look like a ghost. Cut a hole in the materials where the top of the globe will rest while hanging
+
+4. Cut small squares (about 1.5 inches by 1.5 inches) and drill a hole in the middle and one hole near each corner as shown in the following figure.
+
+![](images/hanging-bracket.jpg)
+
+5. Run some string or rope through the hole you created in the covering material, then through the hole in the top of the globe, and finally through the hole in the middle of the piece shown in the previous figure. Knot the string/rope on the underside of the plastic piece so you can hold the whole assembly in the air by the string/rope. 
+
+   When you're done, it should look something like the following picture. ( used fishing line, so you can't see the string holding the ghost up in the air.)
+
+![Finished Ghost](images/finished-ghost.jpg)
+
+6. 
