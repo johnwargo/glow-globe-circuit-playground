@@ -75,3 +75,5 @@ Be sure to change the first array dimension (`[4]`) if you add or remove colors 
 8. Attach a charged LiPo battery to the underside of the Circuit Playground and plug it into the Circuit playground. With the right battery, the device should run on power through your whole Halloween celebration.
 
 That's it. Enjoy.
+
+**Note:** 3D printable bracket by [Soufiane](https://www.fiverr.com/soufianejanna).
