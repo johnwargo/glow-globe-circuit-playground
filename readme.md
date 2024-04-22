@@ -60,7 +60,7 @@ Be sure to change the first array dimension (`[4]`) if you add or remove colors 
 
   ![hand made hanging bracket for the ghost](images/hanging-bracket.jpg)
 
-  I also included a 3D printer version of a bracket you can use instead. The 3D printed bracket has the same size, shape, and hole configuration of the Circuit Playground, making it easy to connect matching holes between the bracket and Circuit Playground. The 3D printed bracket also has a big hole in the center with cross supports, allowing you to use a bigger rope/string to hang the ghost.
+  I also included a 3D printer version of a bracket you can use instead (`glow-globe-bracket-3mm.stl`). The 3D printed bracket has the same size, shape, and hole configuration of the Circuit Playground, making it easy to connect matching holes between the bracket and Circuit Playground. The 3D printed bracket also has a big hole in the center with cross supports, allowing you to use a bigger rope/string to hang the ghost.
 
   ![3D Printed hanging bracket for the ghost](images/3d-print-bracket.jpg)
 
