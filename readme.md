@@ -64,13 +64,14 @@ Be sure to change the first array dimension (`[4]`) if you add or remove colors 
 
   ![3D Printed hanging bracket for the ghost](images/3d-print-bracket.jpg)
 
-6. Run some string or rope through the hole you created in the covering material, then through the hole in the top of the globe, and finally through the hole in the middle of selected bracket. Knot or tie the string/rope to the bracketso you can hold the whole assembly in the air by the string/rope. 
+6. Run some string or rope through the hole you created in the covering material, then through the hole in the top of the globe, and finally through the hole in the middle of selected bracket. Knot or tie the string/rope to the bracket so you can hold the whole assembly in the air by the string/rope. 
 
   When you're done, it should look something like the following picture. ( used fishing line, so you can't see the string holding the ghost up in the air.)
 
   ![Finished Ghost](images/finished-ghost.jpg)
 
-7. Finally, and I don't have a picture of this, use fishing line or some thin, non-conductive material to connect the four corner holes in the plastic piece to corresponding holes in the Circuit Playground. The point is to suspend the Circuit playground in the middle of the globe. 
+7. Finally, and I don't have a picture of this, use fishing line or some thin, non-conductive material to connect the four corner holes in the plastic piece to corresponding holes in the Circuit Playground. The point is to suspend the Circuit playground in the middle or bottom of the globe. For my implementation, I hung the CP board at the bottom of the globe with the LEDs facing up - that gives the best full illumination of the globe.
+
 8. Attach a charged LiPo battery to the underside of the Circuit Playground and plug it into the Circuit playground. With the right battery, the device should run on power through your whole Halloween celebration.
 
 That's it. Enjoy.
